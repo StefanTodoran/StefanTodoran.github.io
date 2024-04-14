@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import MainApp from "./MainApp";
+import App from "./App.tsx";
 import "./index.css";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(<MainApp />);
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);

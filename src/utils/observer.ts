@@ -8,6 +8,8 @@
    */
   function init() {
     setDynamicElementsObserver();
+    const loader = document.getElementById("loader-container");
+    loader?.classList.add("loaded");
   }
 
   function setDynamicElementsObserver() {
