@@ -25,6 +25,8 @@ export default function ClientCarousel() {
           </>}
           label="Recent&nbsp;Clients"
           tip="Click on client logos to visit their websites!"
+          numItems={8}
+          animDelay="-4380ms"
         >
           <ClientIcon
             href="https://dshydro.github.io/"

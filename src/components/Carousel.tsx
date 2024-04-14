@@ -5,6 +5,8 @@ import "./styles/Carousel.sass";
 interface Props {
     plantDecorations: React.ReactNode,
     children: React.ReactNode,
+    numItems: number,
+    animDelay: string, // TODO: remove the need for this via smart .sass
     label: string,
     tip?: string,
 }
@@ -12,6 +14,8 @@ interface Props {
 export default function Carousel({
     plantDecorations,
     children,
+    numItems,
+    animDelay,
     label,
     tip,
 }: Props) {
@@ -54,7 +58,7 @@ export default function Carousel({
                 <div className="hr"></div>
             </div>
 
-            <div className="carousel row">
+            <div className="carousel row" style={{ "--num-items": numItems, "--anim-delay": animDelay }}>
                 {children}
             </div>
             <div className="hr"></div>
