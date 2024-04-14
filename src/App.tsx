@@ -11,6 +11,7 @@ import { scrollToHref, scrollToTop } from "./utils/utils";
 // SHORTHANDS
 import PageTopPlants from "./other/PageTopPlants";
 import IntroButtons from "./other/IntroButtons";
+import ClientCarousel from "./other/ClientCarousel";
 
 // STYLES
 import "./App.sass";
@@ -46,7 +47,6 @@ import Technivision from "./assets/technivision.gif";
 import Linguini2 from "./assets/linguini_2.png";
 import CratesCraters from "./assets/crates_n_craters.png";
 import Mashup from "./assets/svg/mashup.svg";
-import ClientCarousel from "./other/ClientCarousel";
 
 function App() {
   const gotoContact = () => {
@@ -65,7 +65,6 @@ function App() {
 
   return (
     <>
-      {/* <Loader/> */}
       <div className="grain active"></div>
 
       <Menu callbacks={[
