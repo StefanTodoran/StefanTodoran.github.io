@@ -1,5 +1,6 @@
-import { Suspense, lazy } from "react";
+import { Suspense, lazy, useEffect } from "react";
 import { scrollToHref, scrollToTop } from "./utils/utils";
+import { setDynamicElementsObserver } from "./utils/observer";
 
 // COMPONENTS
 import SectionBreak from "./components/SectionBreak";
@@ -67,6 +68,12 @@ function App() {
   >
     Click here
   </a>;
+
+  useEffect(() => {
+    setDynamicElementsObserver();
+    const loader = document.getElementById("loader-container");
+    loader?.classList.add("loaded");
+  }, []);
 
   return (
     <>
