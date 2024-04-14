@@ -55,7 +55,7 @@ export default function LeavesGenerator({ leafCount, spawnDelay, gustFrequency }
             if (evt.animationName !== "fade-and-turn") return;
 
             setLeafPropertiesRandomly(leaf, spawnDelay[0], spawnDelay[1]);
-            if (!leaf.classList.contains("blown")) leaf.classList.remove("wind-gust");
+            // if (!leaf.classList.contains("blown")) leaf.classList.remove("wind-gust", "blown");
             
             leaf.classList.add("animation-restart");
             leaf.offsetTop; // Accessing this to trigger DOM reflow and restart animation.
@@ -73,36 +73,33 @@ export default function LeavesGenerator({ leafCount, spawnDelay, gustFrequency }
             // setInterval(() => updateLeaf(leaf), spawnDelay[1] * 2 * 1000);
         });
 
-        // TODO:
-        // Figured out solution, just have to implement.
-        // Create a div which is fixed to the whole viewport: leaf container
-        // When wind is blowing, this whole leaf 
-
         // function doWindGust() {
-        //     const plantDecorations = document.querySelectorAll(".affected-by-wind") as NodeListOf<HTMLElement>;
-            
-        //     plantDecorations.forEach(decoration => {
-        //         decoration.classList.remove("single-wind-gust", "double-wind-gust");
-        //         decoration.offsetTop; // Accessing this to trigger DOM reflow and restart animation.
+        //     setTimeout(() => {
+        //         const plantDecorations = document.querySelectorAll(".affected-by-wind") as NodeListOf<HTMLElement>;
                 
-        //         decoration.classList.add("single-wind-gust");
-        //     });
-            
-        //     leafElements.forEach(leaf => {
-        //         leaf.classList.add("wind-gust");
-        //         leaf.style.setProperty("--gust-strength", "20");
-        //     });
-            
-        //     plantDecorations[0].addEventListener("animationend", () => {
-        //         leafElements.forEach(leaf => {
-        //             leaf.classList.add("blown");
-        //             leaf.style.setProperty("--gust-strength", "1");
+        //         plantDecorations.forEach(decoration => {
+        //             decoration.classList.remove("single-wind-gust", "double-wind-gust");
+        //             decoration.offsetTop; // Accessing this to trigger DOM reflow and restart animation.
+                    
+        //             decoration.classList.add("single-wind-gust");
         //         });
-        //         setTimeout(doWindGust, random(...gustFrequency) * 1000);
-        //     });
+                
+        //         leafElements.forEach(leaf => {
+        //             leaf.classList.add("wind-gust");
+        //             leaf.style.setProperty("--gust-strength", "20");
+        //         });
+                
+        //         plantDecorations[0].addEventListener("animationend", () => {
+        //             leafElements.forEach(leaf => {
+        //                 leaf.classList.add("blown");
+        //                 leaf.style.setProperty("--gust-strength", "1");
+        //             });
+        //             doWindGust();
+        //         });
+        //     }, random(...gustFrequency) * 1000);
         // }
-
-        // setTimeout(doWindGust, random(...gustFrequency) * 1000);
+        
+        // doWindGust();
         gustFrequency;
     }, []);
 

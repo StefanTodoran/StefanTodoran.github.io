@@ -30,7 +30,7 @@ export default function PageTopPlants() {
             />
             <PlantDecoration src={HangingVine} top right long
                 customClass="affected-by-wind"
-                customStyle={{ "--translation-multiplier": 1.65, "--start-offset": .75, "--weight-multiplier": 0.5 }}
+                customStyle={{ "--translation-multiplier": 1.85, "--start-offset": .75, "--weight-multiplier": 0.5 }}
             />
         </>
     );

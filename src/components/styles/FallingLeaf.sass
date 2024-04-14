@@ -8,17 +8,17 @@
     --gust-strength: 1
     top: calc(-1 * var(--leaf-height))
     right: var(--position)
-    transition: opacity 0.5s ease
+    transition: opacity 0.5s ease, right 0s linear
 
-    // animation: fall 9s ease forwards, fade-and-turn var(--duration) linear forwards, spin var(--spin-speed) linear infinite
     --sway-multiplier: 0
-    animation: fall 9s ease forwards, fade-and-turn var(--duration) linear forwards, spin var(--spin-speed) linear infinite, sway 2s ease-in-out infinite
+    // animation: fall 9s ease forwards, fade-and-turn var(--duration) linear forwards, spin var(--spin-speed) linear infinite, sway 2s ease-in-out infinite
+    animation: fall 9s ease forwards, fade-and-turn var(--duration) linear forwards, spin var(--spin-speed) linear infinite
     animation-delay: var(--delay), var(--delay), var(--delay)
     opacity: 1
 
-// .falling-decoration.wind-gust
-//     transition: opacity 0.5s ease, right 9s ease
-//     right: calc(var(--position) - calc(var(--gust-strength) * var(--leaf-height)))
+.falling-decoration.wind-gust
+    transition: opacity 0.5s ease, right 9s ease
+    right: calc(var(--position) - calc(var(--gust-strength) * var(--leaf-height)))
 
 .animation-restart
     animation: none
