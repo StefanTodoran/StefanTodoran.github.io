@@ -6,6 +6,7 @@ interface BaseProps {
     bottom?: boolean | number | string,
     left?: boolean | number | string,
     long?: boolean,
+    lazy?: boolean,
     maxWidth?: string,
     maxHeight?: string,
     desktopOnly?: boolean,
@@ -33,6 +34,7 @@ export default function PlantDecoration({
     right,
     bottom,
     long,
+    lazy,
     maxWidth,
     maxHeight,
     desktopOnly,
@@ -66,5 +68,6 @@ export default function PlantDecoration({
             maxHeight: maxHeight,
             ...customStyle,
         }}
+        loading={lazy ? "lazy" : undefined}
     />;
 }

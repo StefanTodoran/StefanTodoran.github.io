@@ -1,17 +1,19 @@
-// COMPONENTS & FUNCTIONS
-import Menu from "./components/Menu";
+import { Suspense, lazy } from "react";
+import { scrollToHref, scrollToTop } from "./utils/utils";
+
+// COMPONENTS
 import SectionBreak from "./components/SectionBreak";
 import PlantDecoration from "./components/PlantDecoration";
-import LeavesGenerator from "./components/LeavesGenerator";
 import Section from "./components/Section";
-import Footer from "./other/Footer";
 import Title from "./components/Title";
-import { scrollToHref, scrollToTop } from "./utils/utils";
+const Menu = lazy(() => import("./components/Menu"));
+const LeavesGenerator = lazy(() => import("./components/LeavesGenerator"));
 
 // SHORTHANDS
 import PageTopPlants from "./other/PageTopPlants";
 import IntroButtons from "./other/IntroButtons";
-import ClientCarousel from "./other/ClientCarousel";
+const ClientCarousel = lazy(() => import("./other/ClientCarousel"));
+const Footer = lazy(() => import("./other/Footer"));
 
 // STYLES
 import "./App.sass";
@@ -43,7 +45,10 @@ import Freelance1 from "./assets/freelance_1.png";
 import Freelance1a from "./assets/freelance_1a.png";
 import Freelance2 from "./assets/freelance_2.png";
 import Freelance2a from "./assets/freelance_2a.png";
-import Technivision from "./assets/technivision.gif";
+
+import TechnivisionStatic from "./assets/technivision.png";
+const Technivision = lazy(() => import("./other/Technivision"));
+
 import Linguini2 from "./assets/linguini_2.png";
 import CratesCraters from "./assets/crates_n_craters.png";
 import Mashup from "./assets/svg/mashup.svg";
@@ -76,7 +81,7 @@ function App() {
 
       <div id="wrapper">
         <PageTopPlants />
-        <LeavesGenerator leafCount={3} spawnDelay={[3, 7]} gustFrequency={[0, 10]}/>
+        <LeavesGenerator leafCount={3} spawnDelay={[3, 7]} gustFrequency={[0, 10]} />
         {/* <LeavesGenerator leafCount={20} spawnDelay={[3, 7]} gustFrequency={[0, 10]}/> */}
 
         <Section
@@ -93,14 +98,14 @@ function App() {
         </Section>
 
         <SectionBreak id="freelance-section">
-          <PlantDecoration src={Sprouts} top left />
-          <PlantDecoration src={FanLeaves1} bottom right long />
+          <PlantDecoration src={Sprouts} top left lazy />
+          <PlantDecoration src={FanLeaves1} bottom right long lazy />
         </SectionBreak>
 
         <Section
           branchSrc={Branch1}
           plantDecorations={
-            <PlantDecoration src={FanLeaves2} bottom left long customClass="mobile-vertical-fix" />
+            <PlantDecoration src={FanLeaves2} bottom left long lazy customClass="mobile-vertical-fix" />
           }
           parallaxContent={<>
             <img className="parallax-content long-version" src={Freelance1} />
@@ -127,8 +132,8 @@ function App() {
         <Section
           branchSrc={Branch2}
           plantDecorations={<>
-            <PlantDecoration src={TinyShrubs} top right />
-            <PlantDecoration src={Shrubs2} bottom right />
+            <PlantDecoration src={TinyShrubs} top right lazy />
+            <PlantDecoration src={Shrubs2} bottom right lazy />
           </>}
           parallaxContent={<>
             <img className="parallax-content inverse long-version" src={Freelance2} />
@@ -151,13 +156,17 @@ function App() {
         </Section>
 
         <SectionBreak id="projects-section">
-          <PlantDecoration src={LargeShrub} left long />
+          <PlantDecoration src={LargeShrub} left long lazy />
         </SectionBreak>
 
         <Section
           branchSrc={Branch3}
-          plantDecorations={<PlantDecoration src={SmallBranch3} bottom right />}
-          parallaxContent={<img className="parallax-content" src={Technivision} loading="lazy" />}
+          plantDecorations={<PlantDecoration src={SmallBranch3} bottom right lazy />}
+          parallaxContent={
+            <Suspense fallback={<img className="parallax-content" src={TechnivisionStatic} loading="lazy" />}>
+              <Technivision />
+            </Suspense>
+          }
         >
           <Title href="https://www.youtube.com/watch?v=tSOshI3OD_Q" customClass="tiny-width-fix">Technivision</Title>
           <p className="long-version">
@@ -175,7 +184,7 @@ function App() {
 
         <Section
           branchSrc={Branch1}
-          plantDecorations={<PlantDecoration src={FanLeaves3} top left long />}
+          plantDecorations={<PlantDecoration src={FanLeaves3} top left long lazy />}
           parallaxContent={
             <img className="parallax-content inverse tiny-width-fix" src={Linguini2} />
           }
@@ -195,8 +204,8 @@ function App() {
         </Section>
 
         <SectionBreak>
-          <PlantDecoration src={SmallShrubs} top left />
-          <PlantDecoration src={FernClump} bottom right long />
+          <PlantDecoration src={SmallShrubs} top left lazy />
+          <PlantDecoration src={FernClump} bottom right long lazy />
         </SectionBreak>
 
         <Section
@@ -218,12 +227,12 @@ function App() {
         </Section>
 
         <SectionBreak id="contact-section">
-          <PlantDecoration src={SmallBranch4} id="plant-2" top right long />
+          <PlantDecoration src={SmallBranch4} id="plant-2" top right long lazy />
         </SectionBreak>
 
         <Section
           branchSrc={Branch3}
-          plantDecorations={<PlantDecoration src={BackToTop} id="back-to-top" top left long onClick={scrollToTop} />}
+          plantDecorations={<PlantDecoration src={BackToTop} id="back-to-top" top left long lazy onClick={scrollToTop} />}
           parallaxContent={<img className="parallax-content inverse" src={Mashup} />}
           inverse
         >
