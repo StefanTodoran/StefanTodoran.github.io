@@ -1,0 +1,152 @@
+@mixin vendor-prefix($name, $value)
+    @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '')
+        #{$vendor}#{$name}: #{$value}
+
+.title.small
+    margin: 0
+    font-size: 16px
+
+a:focus, .clickable:focus
+    outline: 1px solid var(--main-color)
+    border-radius: 5px
+
+p:focus
+    outline: none !important
+
+.client-icon:focus, .icon-button:focus
+    scroll-margin: 40vmin 0
+
+.title.clickable:focus
+    scroll-margin-top: 30vmin
+    scroll-margin-bottom: 60vmin
+
+// a, .clickable
+.clickable
+    cursor: pointer
+
+.title, .subtitle
+    font-family: 'Rampart One', sans-serif
+    text-transform: uppercase
+    text-decoration: none
+
+.title
+    font-size: 40px
+    background: linear-gradient(1deg, var(--light-color) 40%, var(--main-color) 60%)
+
+    @include vendor-prefix('background-clip', 'text')
+    @include vendor-prefix('text-fill-color', 'transparent')
+
+// Clickable Title Styles
+.title.clickable:not(.small),
+.title.clickable::before, .title.clickable::after
+    background: linear-gradient(1deg, var(--main-color) 40%, var(--highlight-color) 60%, var(--main-color) 80%)
+    background-size: 100% 200%
+
+    animation: glint 5s linear infinite
+    @include vendor-prefix('background-clip', 'text')
+    @include vendor-prefix('text-fill-color', 'transparent')
+
+// .title.clickable:hover, .title.clickable:focus
+.title.clickable
+    position: relative
+    outline: none !important
+
+.title.clickable::before, .title.clickable::after
+    content: "> "
+    position: absolute
+    transform: translateY(-0.1em)
+    line-height: initial
+    left: 0
+    right: 0
+    opacity: 0
+    transition: opacity 0.25s ease, left 0.25s ease, right 0.25s ease
+
+.title.clickable::before
+    top: 0
+.title.clickable::after
+    bottom: 0
+
+.title.clickable:hover::before,
+.title.clickable:focus::before
+    left: -1em
+    opacity: 1
+
+.title.clickable:hover::after,
+.title.clickable:focus::after
+    right: -1em
+    opacity: 1
+
+.title.clickable::after
+    transform: translateY(-0.1em) scaleX(-1)
+// End Clickable Title
+
+// Small Clickable Title
+.title.clickable.small
+    border-bottom: 1px solid transparent
+    border-radius: 0.2em
+    transition: border 0.5s ease
+
+.title.clickable.small:hover,
+.title.clickable.small:focus
+    border-bottom: 1px solid var(--light-color)
+
+.title.clickable.small::before, .title.clickable.small::after
+    display: none
+// End Small Clickable Title
+
+// Line Height Fix
+.title.line-height-fix
+    line-height: 0.75em
+
+.title.line-height-fix + p
+    margin-top: 5px
+
+// .title.clickable.line-height-fix:hover::before, .title.clickable.line-height-fix:hover::after
+//   line-height: 1em
+//   top: 0
+//   transform: translateY(0.1em)
+
+// .title.clickable.line-height-fix:hover::after
+//   transform: translateY(0.1em) scaleX(-1)
+// End Line Height Fix
+
+.title.long-version
+    line-height: 1em
+    margin-bottom: 0.2em
+
+@keyframes glint
+    0%, 10%
+        background-position: top
+    50%, 60%
+        background-position: center
+    100%
+        background-position: top
+
+.subtitle
+    margin: 0 1em
+    font-size: 20px
+    color: gray
+
+@media screen and (max-width: 768px)
+    .title
+        font-size: 30px
+
+    .title.tiny-width-fix
+        font-size: 26px
+
+    p, .title.small
+        font-size: 14px
+
+@media screen and (max-width: 425px)
+    .title
+        font-size: 25px
+
+    p, .title.small
+        font-size: 12px
+
+    .title.tiny-width-fix
+        font-size: 22px
+
+@media screen and (max-width: 362px)
+    .title.tiny-width-fix
+        font-size: 18px

@@ -1,0 +1,41 @@
+.simple-button
+    font-size: 16px
+    border-radius: .5em
+    margin: .25em
+    border: none
+
+    color: var(--main-color)
+    border: 1px solid var(--main-color)
+    box-sizing: border-box
+    background: white
+
+    transition: 0.2s ease
+    display: flex
+    flex-direction: row
+    align-items: center
+
+.simple-button.primary
+    color: white
+    background: linear-gradient(90deg, var(--light-color) 0%, var(--main-color) 100%)
+    border: none
+
+.simple-button>svg
+    margin-left: .5em
+    height: 1em
+
+.simple-button>svg path
+    fill: var(--main-color)
+
+.simple-button.primary>svg path
+    fill: white
+
+.simple-button:focus,
+.simple-button:hover
+    cursor: pointer
+    transform: scale(0.95)
+    outline: none !important
+
+.simple-button:active
+    border-radius: .6em
+    transform: scale(0.9)
+    opacity: 0.75

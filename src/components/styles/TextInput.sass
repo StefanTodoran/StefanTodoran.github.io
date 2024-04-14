@@ -1,0 +1,68 @@
+.text-input-container
+    font-size: 16px
+    position: relative
+    border: 1px solid var(--main-color)
+    border-radius: .5em
+    --margin: 5px
+    margin: var(--margin)
+    transition: all 0.25s ease
+    width: 100%
+
+
+.text-input-container.invalid
+    border: 1px solid red
+
+.text-input-container>input,
+.text-input-container>textarea
+    padding: .5em
+    background: none
+    border: none
+    width: 100%
+
+.height-expand .text-input-container
+    height: calc(100% - calc(2 * var(--margin)))
+
+.text-input-container.textarea
+    display: flex
+
+.text-input-container>textarea
+    resize: none
+
+.text-input-container>input:focus-within,
+.text-input-container>textarea:focus-within
+    outline: none
+
+.text-input-label
+    position: absolute
+    pointer-events: none
+    top: 50%
+    transform: translateY(-50%)
+    left: .5em
+    transition: all 0.25s ease
+
+.text-input-container>.text-input-label>p
+    position: relative
+    transition: all 0.25s ease
+    color: var(--main-color)
+    z-index: 1
+
+.text-input-container.has-content>.text-input-label
+    top: 0
+
+.text-input-container.textarea>.text-input-label
+    top: 0
+    left: .75em
+
+.text-input-container.has-content>.text-input-label>p
+    font-size: .75em
+
+.line-cover
+    position: absolute
+    left: 0
+    right: 0
+    top: 50%
+    transform: translateY(calc(-50% - 1px))
+    height: 3px
+    width: 100%
+    background: #fff
+    z-index: 0

@@ -1,0 +1,22 @@
+#loader-container
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  z-index: 6
+  background-color: #000000aa
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  backdrop-filter: blur(3px)
+  transition: opacity 1s ease, visibility 1s ease, backdrop-filter 1s ease
+
+#loader
+  width: 60vw
+
+#loader-container.loaded
+  opacity: 0
+  visibility: hidden
+  pointer-events: none

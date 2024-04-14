@@ -1,0 +1,144 @@
+/* ==================== */
+/* 🌱 PLANT DECORATIONS */
+.branch-decoration
+  position: absolute
+  max-width: 50vw
+  z-index: -1
+  left: 0
+
+.branch-decoration.inverse
+  left: unset
+  right: 0
+  transform: scaleX(-1)
+
+.plant-decoration
+  position: absolute
+
+.plant-decoration:not(.clickable)
+  pointer-events: none
+
+.plant-decoration
+  max-width: 15vmin
+  max-height: 12.5vmin
+
+.plant-decoration.long
+  max-height: 40vmin
+
+.plant-decoration.single-wind-gust
+  --translation-multiplier: 1
+  --weight-multiplier: 1
+  animation: windy-sway-single 8s ease-in-out
+  animation-delay: calc(var(--start-offset) * 1s)
+
+.plant-decoration.double-wind-gust
+  --translation-multiplier: 1
+  --weight-multiplier: 1
+  animation: windy-sway-double 8s ease-in-out
+  animation-delay: calc(var(--start-offset) * 1s)
+
+@keyframes windy-sway-single
+  0%, 10%, 100%
+    transform: none
+  60%
+    transform: translateX(calc(var(--translation-multiplier) * 10%)) skewX(calc(var(--weight-multiplier) * 10deg))
+
+@keyframes windy-sway-double
+  0%, 10%, 100%
+    transform: none
+  40%
+    transform: translateX(calc(var(--translation-multiplier) * 10%)) skewX(calc(var(--weight-multiplier) * 10deg))
+  50%
+    transform: translateX(calc(var(--translation-multiplier) * 8%)) skewX(calc(var(--weight-multiplier) * 8deg))
+  70%
+    transform: translateX(calc(var(--translation-multiplier) * 12%)) skewX(calc(var(--weight-multiplier) * 12deg))
+  80%
+    transform: translateX(calc(var(--translation-multiplier) * 14%)) skewX(calc(var(--weight-multiplier) * 14deg))
+
+.plant-decoration.single-wind-gust.horizontal-sway
+  animation: windy-sway-single-horizontal 8s ease-in-out
+
+@keyframes windy-sway-single-horizontal
+  0%, 10%, 100%
+    transform: none
+  60%
+    transform: translateY(calc(var(--translation-multiplier) * 10%)) skewY(calc(var(--weight-multiplier) * 10deg))
+
+/* END PLANT DECORATIONS */
+/* ===================== */
+
+/* =================== */
+/* ✨ PARALLAX SECTION */
+#wrapper
+  height: 100vh
+  overflow-y: auto
+  overflow-x: hidden
+  perspective: 10px
+
+.parallax-section
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  position: relative
+
+  width: 100%
+  margin: 10vh 0
+  transform-style: preserve-3d
+
+.parallax-anchor, .parallax-content
+  max-width: 35vw
+  max-height: 50vh
+
+.parallax-content
+  z-index: 1
+  transform: translate3d(-8vw, 0, 5px) scale(0.5)
+
+.parallax-content.inverse
+  transform: translate3d(8vw, 0, 5px) scale(0.5)
+/* END PARALLAX SECTION */
+/* ==================== */
+
+.section-break
+  position: relative
+  height: 10vh
+
+@media screen and (max-width: 1024px)
+  .parallax-content
+    max-height: 30vh
+
+  .section-break
+    height: 15vh
+
+  .plant-decoration
+    max-height: 17.5vmin
+
+@media screen and (max-width: 768px)
+  .parallax-anchor
+    max-width: 50vw
+    margin-left: -5vw
+
+  .parallax-anchor.inverse
+    margin-left: 0
+    margin-right: -5vw
+
+  .parallax-content
+    max-width: 35vw
+
+  .branch-decoration
+    max-width: 60vw
+
+@media screen and (max-width: 425px)
+  // may need to add a non inverse version
+  .parallax-content.inverse.tiny-width-fix
+    max-width: 45vw
+    margin-left: 2vw
+    margin-right: -3vw
+
+  .plant-decoration.left.long.tiny-width-fix
+    bottom: 20vmin
+
+@media screen and (max-width: 362px)
+  .parallax-content.inverse.tiny-width-fix
+    max-width: 55vw
+    margin-left: 2vw
+    margin-right: -5vw

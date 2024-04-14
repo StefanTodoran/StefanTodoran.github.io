@@ -1,0 +1,84 @@
+#intro-section
+    margin-top: 40vh
+    margin-bottom: 30vh
+    position: relative
+
+#intro-buttons
+    display: flex
+    flex-direction: row
+    justify-content: center
+    margin-right: 5vw
+
+#intro-buttons.contact-form-open > .icon-button
+    opacity: 0
+
+#contact-form
+    position: absolute
+    top: -20px
+    right: -20px
+    bottom: -20px
+    left: -20px
+    padding: 5px
+    margin: 5px
+    border-radius: 7.5px
+    border: 1px solid var(--light-color)
+    transition: 0.2s ease
+    background-color: #ffffff
+
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    overflow-x: hidden
+    overflow-y: scroll
+
+#intro-buttons.contact-form-closed > #contact-form
+    opacity: 0
+    pointer-events: none
+    visibility: hidden
+    transform: scale(0.9)
+
+#intro-buttons.contact-form-closed > #contact-form *
+    pointer-events: none
+    visibility: hidden
+
+#contact-form>div.row
+    justify-content: flex-end
+
+#contact-form>div.row.height-expand
+    flex: 1
+
+#contact-form>p
+    font-size: 0.8em
+    margin: .5em 10%
+
+@media screen and (min-width: 769px)
+    #intro-buttons
+        position: relative
+
+@media screen and (max-width: 768px)
+    #intro-section
+        margin-top: 35vh
+        margin-bottom: 20vh
+        flex-direction: column-reverse
+
+    #intro-buttons
+        margin-right: 0
+        margin-top: 2.5vh
+
+    #intro-section>.parallax-anchor
+        max-width: 80vw
+
+    #contact-form
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        margin: 0
+        margin-left: 10vw
+        max-width: 80vw
+
+@media screen and (max-width: 425px)
+    #intro-section
+        margin-top: 30vh
+        margin-bottom: 15vh

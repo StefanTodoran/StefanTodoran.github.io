@@ -1,0 +1,66 @@
+.icon-button
+  --btn-size: min(120px, 20vw)
+  width: var(--btn-size)
+  height: var(--btn-size)
+  padding: 10px 10px 8px
+  margin: 5px
+
+  border-radius: 7.5px
+  border: 1px solid var(--light-color)
+  transition: 0.2s ease
+  text-decoration: none
+  background-color: #ffffffbb
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  overflow: hidden
+
+.icon-button:focus,
+.icon-button:hover
+  padding: 10px 10px 8px
+  border-color: var(--main-color)
+  border-radius: 8px
+  content: var(--hover-src)
+  transform: scale(0.975)
+  background-color: #ffffffee
+  outline: none !important
+
+.icon-button:active
+  border-radius: 10px
+  transform: scale(0.95)
+  background-color: #fafbf5bb
+
+.icon-button:focus
+  scroll-margin: 40vmin 0
+
+.icon-button > img
+  margin: 0 10px
+  flex: 1
+
+.icon-button > .label
+  font-weight: 300
+  margin: 2px 0 0 0
+  color: var(--light-color)
+  font-size: calc(var(--btn-size) / 6)
+  transition: 0.2s ease
+  max-height: 0
+  opacity: 0
+
+.icon-button:focus > .label,
+.icon-button:hover > .label
+  color: var(--main-color)
+  max-height: 1.5em
+  opacity: 1
+
+@media (pointer: none)
+@media (hover: none)
+@media screen and (max-width: 425px)
+  .icon-button>.label
+    color: var(--main-color)
+    max-height: 1.5em
+    opacity: 1
+
+@media screen and (max-width: 425px)
+  .icon-button > img
+    height: 80%

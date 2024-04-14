@@ -1,0 +1,138 @@
+.grain
+  position: fixed
+  height: 200vh
+  width: 200vw
+  top: -50%
+  left: -50%
+  pointer-events: none
+  opacity: 0.8
+  background-image: url(./assets/noise.png)
+
+.grain.active
+  animation: grain 4s steps(6) infinite
+
+@keyframes grain
+  0%, 100%
+    transform: translate(0,0)
+  10%
+    transform: translate(-5%,-10%)
+  30%
+    transform: translate(3%,-15%)
+  50%
+    transform: translate(12%,9%)
+  70%
+    transform: translate(9%,4%)
+  90%
+    transform: translate(-1%,7%)
+
+// ===== \\
+
+.vignette
+  position: fixed
+  height: 100vh
+  width: 100vw
+  top: 0
+  left: 0
+  pointer-events: none
+  z-index: 11
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0) 45%, rgba(0, 0, 0, 0.5) 95%)
+  transition: opacity 1s ease
+  opacity: 0.5
+
+@keyframes random-fade
+  0%
+    opacity: 0.4
+  10%
+    opacity: 0.5
+  20%
+    opacity: 0.35
+  30%
+    opacity: 0.4
+  40%
+    opacity: 0.5
+  50%
+    opacity: 0.4
+  60%
+    opacity: 0.3
+  70%
+    opacity: 0.55
+  80%
+    opacity: 0.4
+  90%
+    opacity: 0.25
+  100%
+    opacity: 0.4
+
+/* ======================= */
+/* DYNAMIC ITEM SECTION 💨 */
+$cubic-ease-out: cubic-bezier(.22,.61,.36,1)
+
+.dynamic-item
+  opacity: 0
+  transform: translateX(-30%)
+  // transition: opacity 0.4s ease-out, transform 0.4s ease-out
+  transition: opacity 0.4s $cubic-ease-out, transform 0.4s $cubic-ease-out
+
+.dynamic-item.inverse
+  transform: translateX(30%)
+
+.dynamic-item.shown
+  opacity: 1
+  transform: none
+/* END DYNAMIC ITEM SECTION */
+/* ======================== */
+
+img
+  user-select: none
+  -webkit-user-drag: none
+
+p
+  margin: 0
+  font-size: 16px
+
+.hr
+  width: 100%
+  height: 1px
+  background-color: #cfd1c9
+  margin: 2em 0
+
+.container
+  position: relative
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 30vh 10vw 10vh 10vw
+
+.footer-row, .row
+  display: flex
+  flex-direction: row
+  justify-content: center
+  align-items: center
+  position: relative
+  width: 100%
+  pointer-events: auto
+
+#footer
+  pointer-events: none
+
+.footer-row
+  color: #c6c8c2
+  font-weight: 300
+
+.hidden
+  display: none
+
+// ===== \\
+
+@media screen and (min-width: 1025px)
+  .short-version
+    display: none
+
+@media screen and (max-width: 1024px)
+  .long-version
+    display: none
+
+@media screen and (max-width: 425px)
+  .container
+    padding: 30vh 5vw 10vh 5vw

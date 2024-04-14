@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "target": "ES2020",
+      "module": "ESNext",
+      "skipLibCheck": true,
+  
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "noEmit": false,
+  
+      /* Linting */
+      "strict": true,
+      "alwaysStrict": true,
+      "noImplicitAny": true,
+      "noUnusedLocals": true,
+      "removeComments": true,
+      "strictNullChecks": true,
+      "noUnusedParameters": true,
+      "noFallthroughCasesInSwitch": true,
+    },
+  }
+  

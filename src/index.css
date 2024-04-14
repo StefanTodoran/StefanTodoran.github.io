@@ -1,0 +1,33 @@
+:root {
+  color-scheme: light;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root, button, input, textarea {
+  font-family: "Poppins", Helvetica, Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+}
+
+body {
+  margin: 0;
+
+  --dark-color: #31572C;
+  --main-color: #4F772D;
+  --light-color: #90A955;
+  --highlight-color: #BECE7A;
+}
+
+#wrapper {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
