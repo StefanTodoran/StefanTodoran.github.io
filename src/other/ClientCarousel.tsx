@@ -5,7 +5,7 @@ import PlantDecoration from "../components/PlantDecoration";
 import Client1 from "../assets/clients/1.png";
 import Client2 from "../assets/clients/2.png";
 import Client3 from "../assets/clients/3.png";
-import Client4 from "../assets/clients/4.png";
+import Client4 from "../assets/clients/4.svg";
 import Client5 from "../assets/clients/5.png";
 import Client6 from "../assets/clients/6.png";
 import Client7 from "../assets/clients/7.png";
@@ -30,42 +30,49 @@ export default function ClientCarousel() {
             href="https://dshydro.github.io/"
             src={Client1}
             order={1}
-          />
+            extraPadding={0.1}
+            />
           <ClientIcon
             href="https://www.soundintegrativewomens.com/"
             src={Client2}
             order={2}
-          />
+            extraPadding={0.1}
+            />
           <ClientIcon
             href="https://www.acupuncture-5e.com/"
             src={Client3}
             order={3}
-          />
+            extraPadding={0.1}
+            />
           <ClientIcon
             href="https://geo-smart.github.io/"
             src={Client4}
             order={4}
-          />
+            extraPadding={0.1}
+            />
           <ClientIcon
             href="https://gogleam.github.io/"
             src={Client5}
             order={5}
-          />
+            />
           <ClientIcon
             href="https://www.alinahairstylist.com/"
             src={Client6}
             order={6}
-          />
+            />
           <ClientIcon
             href="https://tdsw-solutions.com/"
             src={Client7}
             order={7}
-          />
+            extraPadding={0.05}
+            />
           <ClientIcon
+            id="cc-logo"
             href="https://columbia-crossings.web.app/"
             src={CC}
             mobileSrc={CCalt}
             order={8}
+            extraPadding={0.001}
           />
         </Carousel>
     );

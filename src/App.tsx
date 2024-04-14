@@ -14,6 +14,7 @@ const LeavesGenerator = lazy(() => import("./components/LeavesGenerator"));
 import PageTopPlants from "./other/PageTopPlants";
 import IntroButtons from "./other/IntroButtons";
 const ClientCarousel = lazy(() => import("./other/ClientCarousel"));
+const ProjectsCarousel = lazy(() => import("./other/ProjectsCarousel"));
 const Footer = lazy(() => import("./other/Footer"));
 
 // STYLES
@@ -169,24 +170,23 @@ function App() {
         <Section
           branchSrc={Branch3}
           plantDecorations={<PlantDecoration src={SmallBranch3} bottom right lazy />}
-          parallaxContent={
-            <Suspense fallback={<img className="parallax-content" src={TechnivisionStatic} loading="lazy" />}>
-              <Technivision />
-            </Suspense>
-          }
+          parallaxContent={<img className="parallax-content" src={CratesCraters} />}
         >
-          <Title href="https://www.youtube.com/watch?v=tSOshI3OD_Q" customClass="tiny-width-fix">Technivision</Title>
+          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters">Crates & Craters</Title>
           <p className="long-version">
-            A “personal trainer in your pocket” hybrid mobile app that aims to help users achieve safer, more effective
-            workouts. By utilizing computer vision and pose estimation, Technivision can provide individualized feedback
-            on their exercise technique.
+            A passion project of mine, Crates and Craters is a single player puzzle game built for iOS and Android. Don't
+            let the simple premise and minimalist graphics decieve you, the game's mechanics compound on each other to
+            create challenging and layered gameplay! <a className="clickable title small" href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">
+              Click here</a> to give it a try it yourself!
           </p>
           <p className="short-version">
-            A “personal trainer in your pocket” mobile app that helps users achieve safer, more effective workouts.
-            Utilizing computer vision and pose estimation, provides individualized feedback on exercise technique.
+            A passion project of mine, Crates and Craters is a single player puzzle game a simple premise and minimalist
+            graphics, but challenging and layered gameplay! <a className="clickable title small" href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">
+              Click here</a> to give it a try it yourself!
           </p>
         </Section>
 
+        <ProjectsCarousel/>
         <SectionBreak />
 
         <Section
@@ -217,19 +217,21 @@ function App() {
 
         <Section
           branchSrc={Branch2}
-          parallaxContent={<img className="parallax-content" src={CratesCraters} />}
+          parallaxContent={
+            <Suspense fallback={<img className="parallax-content" src={TechnivisionStatic} loading="lazy" />}>
+              <Technivision />
+            </Suspense>
+          }
         >
-          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters">Crates & Craters</Title>
+          <Title href="https://www.youtube.com/watch?v=tSOshI3OD_Q" customClass="tiny-width-fix">Technivision</Title>
           <p className="long-version">
-            A passion project of mine, Crates and Craters is a single player puzzle game built for iOS and Android. Don't
-            let the simple premise and minimalist graphics decieve you, the game's mechanics compound on each other to
-            create challenging and layered gameplay! <a className="clickable title small" href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">
-              Click here</a> to give it a try it yourself!
+            A “personal trainer in your pocket” hybrid mobile app that aims to help users achieve safer, more effective
+            workouts. By utilizing computer vision and pose estimation, Technivision can provide individualized feedback
+            on their exercise technique.
           </p>
           <p className="short-version">
-            A passion project of mine, Crates and Craters is a single player puzzle game a simple premise and minimalist
-            graphics, but challenging and layered gameplay! <a className="clickable title small" href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">
-              Click here</a> to give it a try it yourself!
+            A “personal trainer in your pocket” mobile app that helps users achieve safer, more effective workouts.
+            Utilizing computer vision and pose estimation, provides individualized feedback on exercise technique.
           </p>
         </Section>
 

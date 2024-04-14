@@ -16,3 +16,13 @@
 
 .client-icon img
     width: var(--item-size)
+
+.client-icon.extra-padding
+    padding: 0 calc(var(--item-size) * var(--pad))
+
+.client-icon.extra-padding img
+    width: calc(var(--item-size) * calc(1 - calc(2 * var(--pad))))
+    // margin: calc(var(--item-size) * var(--pad))
+
+.client-icon.pixel-art img
+    image-rendering: pixelated
