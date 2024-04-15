@@ -30,7 +30,7 @@ export default function IntroButtons() {
 
     const openForm = () => {
         setFormOpen(true);
-        setTimeout(() => firstInput.current?.focus(), 250);
+        setTimeout(() => firstInput.current?.focus(), 450);
     };
 
     const closeForm = () => {

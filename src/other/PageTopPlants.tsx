@@ -3,8 +3,8 @@ import PlantDecoration from "../components/PlantDecoration";
 import GraySideVine from "../assets/svg/gray-side-vine.svg";
 import GrayHangingVine from "../assets/svg/gray-hanging-vine.svg";
 import MiscPlants from "../assets/svg/misc-plants.svg";
-import HangingVine from "../assets/svg/hanging-vine.svg";
 import HangingVine2 from "../assets/svg/hanging-vine-2.svg";
+import HangingVine3 from "../assets/svg/hanging-vine-3.svg";
 import RopeVine from "../assets/svg/rope-vine.svg";
 
 export default function PageTopPlants() {
@@ -28,7 +28,7 @@ export default function PageTopPlants() {
                 customClass="affected-by-wind"
                 customStyle={{ "--translation-multiplier": 0.8, "--start-offset": 0, }}
             />
-            <PlantDecoration src={HangingVine} top right long
+            <PlantDecoration src={HangingVine3} top right="2vw" long
                 customClass="affected-by-wind"
                 customStyle={{ "--translation-multiplier": 1.85, "--start-offset": .75, "--weight-multiplier": 0.5 }}
             />

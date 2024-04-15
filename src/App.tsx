@@ -31,8 +31,8 @@ import FernClump from "./assets/svg/fern-clump.svg";
 import FanLeaves1 from "./assets/svg/fan-leaves-1.svg";
 import FanLeaves2 from "./assets/svg/fan-leaves-2.svg";
 import FanLeaves3 from "./assets/svg/fan-leaves-3.svg";
-import SmallBranch3 from "./assets/svg/small-branch-3.svg";
 import SmallBranch4 from "./assets/svg/small-branch-4.svg";
+import SmallBranch6 from "./assets/svg/small-branch-6.svg";
 
 // @ts-ignore We load it to make sure there is no stutter when hovering.
 import BackToTopHover from "./assets/svg/back-to-top_hover.svg";
@@ -124,7 +124,7 @@ function App() {
           <p className="long-version">
             My first foray into web design started in 2019 shortly after first learning to code, when I built a website
             for my mom's small business. Although I had never expected my work to serve as anything more than as a way to
-            attract customers to my mom's business, the site attracted the attention of many of her colleagues and other
+            attract customers to my mom's business, the site recieved attention from many of her colleagues and other
             local business owners and before I knew it I had requests coming in from all over!
           </p>
           <p className="short-version">
@@ -169,7 +169,7 @@ function App() {
 
         <Section
           branchSrc={Branch3}
-          plantDecorations={<PlantDecoration src={SmallBranch3} bottom right lazy />}
+          plantDecorations={<PlantDecoration src={SmallBranch6} top right lazy />}
           parallaxContent={<img className="parallax-content" src={CratesCraters} />}
         >
           <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters">Crates & Craters</Title>
@@ -186,7 +186,7 @@ function App() {
           </p>
         </Section>
 
-        <ProjectsCarousel/>
+        <ProjectsCarousel />
         <SectionBreak />
 
         <Section
@@ -241,7 +241,7 @@ function App() {
 
         <Section
           branchSrc={Branch3}
-          plantDecorations={<PlantDecoration src={BackToTop} id="back-to-top" top left long lazy onClick={scrollToTop} />}
+          plantDecorations={<PlantDecoration src={BackToTop} id="back-to-top" top left long lazy onClick={scrollToTop} customClass="mobile-vertical-fix" />}
           parallaxContent={<img className="parallax-content inverse" src={Mashup} />}
           inverse
         >

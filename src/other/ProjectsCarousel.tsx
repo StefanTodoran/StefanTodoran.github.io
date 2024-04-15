@@ -10,15 +10,17 @@ import BlockScape from "../assets/projects/blockscape.png";
 import CratesCraters from "../assets/projects/cratescraters.png";
 import Mixify from "../assets/projects/mixify.png";
 
-import SmallBranch1 from "../assets/svg/small-branch-1.svg";
-import SmallBranch2 from "../assets/svg/small-branch-2.svg";
+import Fern5 from "../assets/svg/fern-5.svg";
+import SmallBranch3 from "../assets/svg/small-branch-3.svg";
+import SmallBranch5 from "../assets/svg/small-branch-5.svg";
 
 export default function ProjectsCarousel() {
   return (
     <Carousel
       plantDecorations={<>
-        {/* <PlantDecoration src={SmallBranch1} top right long />
-            <PlantDecoration src={SmallBranch2} bottom left /> */}
+        <PlantDecoration src={Fern5} top left long lazy />
+        <PlantDecoration src={SmallBranch5} bottom right lazy />
+        <PlantDecoration src={SmallBranch3} top right lazy />
       </>}
       numItems={7}
       animDelay="-5000ms"

@@ -31,7 +31,7 @@ function setLeafPropertiesRandomly(leaf: HTMLElement, minDuration: number, maxDu
     leaf.style.setProperty("--delay", `${random(0, maxDuration * 1000)}ms`);
 }
 
-export default function LeavesGenerator({ leafCount, spawnDelay, gustFrequency }: Props) {
+export default function LeavesGenerator({ leafCount, spawnDelay }: Props) {
     const leaves = [];
     const ids: string[] = [];
 
@@ -64,19 +64,19 @@ export default function LeavesGenerator({ leafCount, spawnDelay, gustFrequency }
         }
 
         const leafElements: HTMLElement[] = [];
-        ids.forEach(id => {
+        ids.forEach((id, idx) => {
             const leaf = document.getElementById(id)!;
-            setLeafPropertiesRandomly(leaf, spawnDelay[0], spawnDelay[1]);
             leafElements.push(leaf);
             
+            // setLeafPropertiesRandomly(leaf, spawnDelay[0], spawnDelay[1]);
+            // We do this on first call because otherwise the leaves are somewhat synchronized.
+            setTimeout(() => setLeafPropertiesRandomly(leaf, spawnDelay[0], spawnDelay[1]), idx * 1000);
             leaf.addEventListener("animationend", (evt) => updateLeaf(evt, leaf));
-            // setInterval(() => updateLeaf(leaf), spawnDelay[1] * 2 * 1000);
         });
 
-        // function doWindGust() {
+        // const plantDecorations = document.querySelectorAll(".affected-by-wind") as NodeListOf<HTMLElement>;
+        // function doWindGust() {    
         //     setTimeout(() => {
-        //         const plantDecorations = document.querySelectorAll(".affected-by-wind") as NodeListOf<HTMLElement>;
-                
         //         plantDecorations.forEach(decoration => {
         //             decoration.classList.remove("single-wind-gust", "double-wind-gust");
         //             decoration.offsetTop; // Accessing this to trigger DOM reflow and restart animation.
@@ -89,18 +89,17 @@ export default function LeavesGenerator({ leafCount, spawnDelay, gustFrequency }
         //             leaf.style.setProperty("--gust-strength", "20");
         //         });
                 
-        //         plantDecorations[0].addEventListener("animationend", () => {
-        //             leafElements.forEach(leaf => {
-        //                 leaf.classList.add("blown");
-        //                 leaf.style.setProperty("--gust-strength", "1");
-        //             });
-        //             doWindGust();
-        //         });
         //     }, random(...gustFrequency) * 1000);
         // }
         
+        // plantDecorations[0].addEventListener("animationend", () => {
+        //     leafElements.forEach(leaf => {
+        //         leaf.classList.add("blown");
+        //         leaf.style.setProperty("--gust-strength", "1");
+        //     });
+        //     doWindGust();
+        // });
         // doWindGust();
-        gustFrequency;
     }, []);
 
     return (<>{leaves}</>);
