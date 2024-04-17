@@ -23,7 +23,7 @@ export default function ClientCarousel() {
             <PlantDecoration src={SmallBranch1} top right long />
             <PlantDecoration src={SmallBranch2} bottom left />
           </>}
-          label="Recent&nbsp;Clients"
+          label="Sample&nbsp;Websites"
           tip="Click on client logos to visit their websites!"
           numItems={8}
           animDelay="-4380ms"

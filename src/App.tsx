@@ -100,8 +100,8 @@ function App() {
         >
           <Title customClass="line-height-fix">Hey There!</Title>
           <p>
-            I'm Stefan, a computer science graduate from the University of Washington with a passion for web, mobile, and game
-            design. I also interested in machine learning and computer vision. Scroll down to learn about some of my work!
+            I'm Stefan, a computer science Master's student from the University of Washington with a passion for web, mobile, and game
+            design. I also do research in machine learning and computer vision. Scroll down to learn more!
           </p>
         </Section>
 
