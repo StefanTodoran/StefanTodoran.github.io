@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import IconButton from "../components/IconButton";
 import SimpleButton from "../components/SimpleButton";
 import TextInput from "../components/TextInput";
+import { postMessageToServer } from "../utils/database";
+import { analytics } from "../utils/firebase";
+import { logEvent } from "firebase/analytics";
 
 import "./IntroButtons.sass";
 import Resume from "/Resume.pdf";
@@ -12,7 +15,6 @@ import ContactIcon from "../assets/svg/contact.svg";
 import CancelIcon from "./svg/CancelIcon";
 import SubmitIcon from "./svg/SubmitIcon";
 import Title from "../components/Title";
-import { postMessageToServer } from "../utils/database";
 
 enum Status {
     IDLE,
@@ -30,6 +32,7 @@ export default function IntroButtons() {
 
     const openForm = () => {
         setFormOpen(true);
+        logEvent(analytics, "openForm");
         setTimeout(() => firstInput.current?.focus(), 450);
     };
 
@@ -60,8 +63,9 @@ export default function IntroButtons() {
         }
 
         setStatus(Status.SENDING);
+        logEvent(analytics, "submissionAttempt", { name: formName, email: formEmail });
+
         let completed = false;
-        
         setTimeout(() => {
             if (completed) return;
             setErrorMsg("Sending timed out. Please double check your internet connection.");
@@ -78,6 +82,7 @@ export default function IntroButtons() {
         if (error) {
             setErrorMsg(error);
             setStatus(Status.FAILURE);
+            logEvent(analytics, "submissionFailure"); // TODO: What information should we try to collect about the failure?
         } else {
             setStatus(Status.SUCCESS);
         }
@@ -90,12 +95,17 @@ export default function IntroButtons() {
                 src={ResumeIcon}
                 label="Résumé"
                 target="_blank"
+                analyticsEvent="viewResume"
+                // Technically we are double counting with this because in App.tsx we
+                // log all anchor element clicks to analytics, but this way we make these
+                // two links have their own special categories.
             />
             <IconButton
                 href="https://medium.com/@todoran"
                 src={BlogIcon}
                 label="Medium"
                 target="_blank"
+                analyticsEvent="viewMedium"
             />
             <IconButton
                 onClick={openForm}

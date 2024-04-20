@@ -54,12 +54,14 @@ const Technivision = lazy(() => import("./other/Technivision"));
 import Linguini2 from "./assets/linguini_2.png";
 import CratesCraters from "./assets/crates_n_craters.png";
 import Mashup from "./assets/svg/mashup.svg";
+import { logEvent } from "firebase/analytics";
+import { analytics } from "./utils/firebase";
 
 function App() {
-  const gotoContact = () => {
+  function gotoContact() {
     window.dispatchEvent(new Event("openContactForm"));
     scrollToTop();
-  };
+  }
 
   const getInContact = <a
     className="clickable title small"
@@ -76,6 +78,11 @@ function App() {
     loader?.classList.add("loaded");
   }, []);
 
+  function wasLinkClicked(evt: React.MouseEvent) {
+    const target = (evt.target as HTMLElement).closest("a");
+    if (target?.href) logEvent(analytics, "linkClicked", { href: target.href });
+  }
+
   return (
     <>
       <div className="grain active"></div>
@@ -87,7 +94,7 @@ function App() {
         () => scrollToHref("contact-section"),
       ]} />
 
-      <div id="wrapper">
+      <div id="wrapper" onClick={wasLinkClicked}>
         <PageTopPlants />
         <LeavesGenerator leafCount={3} spawnDelay={[3, 7]} gustFrequency={[0, 10]} />
         {/* <LeavesGenerator leafCount={20} spawnDelay={[3, 7]} gustFrequency={[0, 10]}/> */}
@@ -172,7 +179,7 @@ function App() {
           plantDecorations={<PlantDecoration src={SmallBranch6} top right lazy />}
           parallaxContent={<img className="parallax-content" src={CratesCraters} />}
         >
-          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters">Crates & Craters</Title>
+          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">Crates & Craters</Title>
           <p className="long-version">
             A passion project of mine, Crates and Craters is a single player puzzle game built for iOS and Android. Don't
             let the simple premise and minimalist graphics decieve you, the game's mechanics compound on each other to
@@ -223,7 +230,7 @@ function App() {
             </Suspense>
           }
         >
-          <Title href="https://www.youtube.com/watch?v=tSOshI3OD_Q" customClass="tiny-width-fix">Technivision</Title>
+          <Title href="https://www.youtube.com/watch?v=tSOshI3OD_Q" target="_blank" customClass="tiny-width-fix">Technivision</Title>
           <p className="long-version">
             A “personal trainer in your pocket” hybrid mobile app that aims to help users achieve safer, more effective
             workouts. By utilizing computer vision and pose estimation, Technivision can provide individualized feedback

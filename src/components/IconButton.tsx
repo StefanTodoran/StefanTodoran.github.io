@@ -1,3 +1,5 @@
+import { logEvent } from "firebase/analytics";
+import { analytics } from "../utils/firebase";
 import "./styles/IconButton.sass";
 
 interface Props {
@@ -7,6 +9,7 @@ interface Props {
     label: string,
     target?: "_blank",
     overrideSize?: string,
+    analyticsEvent?: string,
 }
 
 export default function IconButton({
@@ -16,17 +19,23 @@ export default function IconButton({
     label,
     target,
     overrideSize,
+    analyticsEvent,
 }: Props) {
+    function handleClick() {
+        if (!!onClick) onClick();
+        if (analyticsEvent) logEvent(analytics, analyticsEvent);
+    }
+
     return (
         <a
             href={href}
-            onClick={onClick}
+            onClick={handleClick}
             target={target}
             className="icon-button clickable"
             style={overrideSize ? { "--btn-size": overrideSize } : {}}
             tabIndex={0}
-            onKeyDown={(evt: any) => { // TODO: Figure out the correct event type for this silly thing...
-                if (onClick && evt.code === "Enter") onClick();
+            onKeyDown={(evt: React.KeyboardEvent) => {
+                if (evt.code === "Enter") handleClick();
             }}
         >
             <img src={src} />
