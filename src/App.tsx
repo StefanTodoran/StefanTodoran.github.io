@@ -179,7 +179,7 @@ function App() {
           plantDecorations={<PlantDecoration src={SmallBranch6} top right lazy />}
           parallaxContent={<img className="parallax-content" src={CratesCraters} />}
         >
-          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank">Crates & Craters</Title>
+          <Title href="https://play.google.com/store/apps/details?id=com.stefantodoran.cratesncraters" target="_blank" customClass="multi-line-fix">Crates & Craters</Title>
           <p className="long-version">
             A passion project of mine, Crates and Craters is a single player puzzle game built for iOS and Android. Don't
             let the simple premise and minimalist graphics decieve you, the game's mechanics compound on each other to

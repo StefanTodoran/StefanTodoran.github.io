@@ -110,9 +110,14 @@ p:focus
 //   transform: translateY(0.1em) scaleX(-1)
 // End Line Height Fix
 
-.title.long-version
+.title.long-version,
+.title.multi-line-fix
     line-height: 1em
-    margin-bottom: 0.2em
+    bottom: 0.1em
+
+// .title.long-version + p,
+// .title.multi-line-fix + p
+//     margin-top: 0.3em
 
 @keyframes glint
     0%, 10%
@@ -126,6 +131,10 @@ p:focus
     margin: 0 1em
     font-size: 20px
     color: gray
+
+@media screen and (max-width: 1161px)
+    .title.multi-line-fix
+        line-height: 1em
 
 @media screen and (max-width: 768px)
     .title

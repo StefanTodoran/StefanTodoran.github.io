@@ -1,7 +1,4 @@
-<h1>
-  Welcome to my portfolio!
-  <img src="src/assets/leaf-logo.png" style="height: 0.8em;"/>
-</h1>
+# Welcome to my portfolio!
 
 You probably want to [click here](https://todoran.dev/) to go to the actual website. This readme simply consists of random tidbits and notes to myself related to the development process for the website and probably isn't very interesting, but you can read it if you like.
 
